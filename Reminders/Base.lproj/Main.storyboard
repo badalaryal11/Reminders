@@ -31,7 +31,16 @@
                             <outlet property="delegate" destination="w16-kC-fDH" id="gr3-bx-EdX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Reminders" id="Twq-hC-Mcr"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Reminders" id="Twq-hC-Mcr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MJI-uH-H8U">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="AddButtonPressed:" destination="w16-kC-fDH" id="3sF-br-7R3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oH1-Wp-Ogu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -43,5 +43,22 @@ class RemindersViewController: UITableViewController {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
     }
+    
+    //MARK: - Add New Items
+    
+    
+    @IBAction func AddButtonPressed(_ sender: UIBarButtonItem) {
+        
+        let alert = UIAlertController(title: "Add New Remainder ", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add things to remember", style: .default) { (action) in
+            //  what will happen once the user clicks the Add button item button on our UIAlert
+            print("Sucess!")
+            
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
 }
 
