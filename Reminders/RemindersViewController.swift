@@ -9,7 +9,7 @@ import UIKit
 
 class RemindersViewController: UITableViewController {
 
-    let itemArray = ["Find Mike", "Buy Eggos", "Destroy Demogorgon"]
+    var itemArray = ["Find Mike", "Buy Eggos", "Destroy Demogorgon"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +49,17 @@ class RemindersViewController: UITableViewController {
     
     @IBAction func AddButtonPressed(_ sender: UIBarButtonItem) {
         
-        let alert = UIAlertController(title: "Add New Remainder ", message: "", preferredStyle: .alert)
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Add New Reminder ", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add things to remember", style: .default) { (action) in
             //  what will happen once the user clicks the Add button item button on our UIAlert
-            print("Sucess!")
+            self.itemArray.append(textField.text!)
+            self.tableView.reloadData()
+        }
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new Reminder"
+            textField = alertTextField
             
         }
         alert.addAction(action)

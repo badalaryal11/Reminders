@@ -32,7 +32,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Reminders" id="Twq-hC-Mcr">
+                    <navigationItem key="navigationItem" title="Reminders" largeTitleDisplayMode="always" style="editor" id="Twq-hC-Mcr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MJI-uH-H8U">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -49,13 +49,12 @@
         <!--Navigation Controller-->
         <scene sceneID="F7X-KA-qCn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fdy-Cz-8FI" sceneMemberID="viewController">
+                <navigationController autoresizesArchivedViewToFullSize="NO" wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="fdy-Cz-8FI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kg4-gS-T5k">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.19138845800000001" green="0.51239019630000004" blue="0.74176675079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" systemColor="tintColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -73,9 +72,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
