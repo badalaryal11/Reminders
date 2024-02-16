@@ -11,9 +11,15 @@ class RemindersViewController: UITableViewController {
 
     var itemArray = ["Find Mike", "Buy Eggos", "Destroy Demogorgon"]
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        if let  items = defaults.array(forKey: "RemaindersArray") as? [String]{
+            itemArray = items
+        }
+            
        
         
     }
@@ -27,6 +33,7 @@ class RemindersViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReminderCell", for: indexPath)
         cell.textLabel?.text = itemArray[indexPath.row]
+        
         return cell
     }
     
@@ -55,6 +62,7 @@ class RemindersViewController: UITableViewController {
         let action = UIAlertAction(title: "Add things to remember", style: .default) { (action) in
             //  what will happen once the user clicks the Add button item button on our UIAlert
             self.itemArray.append(textField.text!)
+            self.defaults.set(self.itemArray, forKey: "RemaindersArray")
             self.tableView.reloadData()
         }
         alert.addTextField { (alertTextField) in
