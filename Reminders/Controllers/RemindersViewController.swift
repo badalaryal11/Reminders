@@ -19,24 +19,24 @@ class RemindersViewController: UITableViewController {
         
         let newItem = Item()
         newItem.title = "Find Mike"
-        newItem.done = true
+        
         itemArray.append(newItem)
         
         let newItem2 = Item()
         newItem2.title = "Buy Eggos"
-        newItem2.done = true
+  
         itemArray.append(newItem2)
         
         let newItem3 = Item()
         newItem3.title = "Destroy Demogorgon"
-        newItem3.done = true
+       
         itemArray.append(newItem3)
         
         
-//        if let  items = defaults.array(forKey: "RemaindersArray") as? [String]{
-//            itemArray = items
-//        }
-//
+        if let  items = defaults.array(forKey: "RemaindersArray") as? [Item]{
+            itemArray = items
+        }
+
        
         
     }
