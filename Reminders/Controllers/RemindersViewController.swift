@@ -11,11 +11,19 @@ class RemindersViewController: UITableViewController {
 
     var itemArray = [Item]() // Array of item objects
     
-    let defaults = UserDefaults.standard
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        // create file path to our documents folder
+        
+        
+        print(dataFilePath)
         
         let newItem = Item()
         newItem.title = "Find Mike"
@@ -32,10 +40,12 @@ class RemindersViewController: UITableViewController {
        
         itemArray.append(newItem3)
         
+        saveItems()
         
-        if let  items = defaults.array(forKey: "RemaindersArray") as? [Item]{
-            itemArray = items
-        }
+        
+//        if let  items = defaults.array(forKey: "RemaindersArray") as? [Item]{
+//            itemArray = items
+//        }
 
        
         
@@ -72,14 +82,9 @@ class RemindersViewController: UITableViewController {
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
 
+        saveItems()
+       
         
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark{
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        }
-        else{
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
-        tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -98,8 +103,8 @@ class RemindersViewController: UITableViewController {
             
             
             self.itemArray.append(newItem)
-            self.defaults.set(self.itemArray, forKey: "RemaindersArray")
-            self.tableView.reloadData()
+            
+            self.saveItems()
         }
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create new Reminder"
@@ -110,6 +115,17 @@ class RemindersViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    func saveItems() {
+        let encoder = PropertyListEncoder()
+        
+        do{
+            let data = try encoder.encode(itemArray)
+            try data.write(to: dataFilePath!)
+        } catch{
+            print("Error Encoding item array, \(error)")
+            
+        }
+    }
     
 }
 
