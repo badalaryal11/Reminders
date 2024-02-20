@@ -23,7 +23,7 @@ class RemindersViewController: UITableViewController {
         // create file path to our documents folder
         
         
-        print(dataFilePath)
+        print(dataFilePath!)
         
         
         loadItems()
