@@ -28,7 +28,7 @@ class RemindersViewController: UITableViewController {
         print(dataFilePath)
         
         
-         loadItems()
+        loadItems()
         
         
         
@@ -66,8 +66,8 @@ class RemindersViewController: UITableViewController {
         // print(itemArray[indexPath.row])
         
         
-        context.delete(itemArray[indexPath.row])
-        itemArray.remove(at: indexPath.row)
+        //        context.delete(itemArray[indexPath.row])
+        //        itemArray.remove(at: indexPath.row)
         
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
@@ -120,14 +120,32 @@ class RemindersViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    func loadItems(){
-        let request : NSFetchRequest<Item> = Item.fetchRequest()
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()){
+        
         do{
             itemArray = try context.fetch(request)
         }catch{
             print("Error fetching data from context \(error)")
         }
+        tableView.reloadData()
+    }
+    
+}
+
+//MARK: - Search Bar Methods
+
+extension RemindersViewController: UISearchBarDelegate{
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        request.predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        
+        
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        
+        loadItems(with: request )
         
     }
+    
     
 }
