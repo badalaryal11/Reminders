@@ -65,6 +65,7 @@ class RemindersViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // print(itemArray[indexPath.row])
         
+       
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
         
