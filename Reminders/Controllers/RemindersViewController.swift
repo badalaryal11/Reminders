@@ -12,7 +12,7 @@ class RemindersViewController: UITableViewController {
     
     var itemArray = [Item]() // Array of item objects
     
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask) //.first?.appendingPathComponent("Items.plist")
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -25,11 +25,11 @@ class RemindersViewController: UITableViewController {
         // create file path to our documents folder
         
         
-        print(dataFilePath!)
+        print(dataFilePath)
         
         
-       // loadItems()
-        saveItems()
+         loadItems()
+        
         
         
         
@@ -85,7 +85,7 @@ class RemindersViewController: UITableViewController {
         let action = UIAlertAction(title: "Add things to remember", style: .default) { (action) in
             //  what will happen once the user clicks the Add button item button on our UIAlert
             
-           
+            
             let newItem = Item(context: self.context)
             newItem.title = textField.text!
             newItem.done = false
@@ -105,27 +105,25 @@ class RemindersViewController: UITableViewController {
     }
     
     func saveItems() {
-       
+        
         do{
             
             try context.save()
         } catch{
-           print("Error saving context \(error)")
+            print("Error saving context \(error)")
             
         }
         self.tableView.reloadData()
     }
     
-//    func loadItems(){
-//        if  let data = try? Data(contentsOf: dataFilePath!){
-//            let decoder = PropertyListDecoder()
-//            do{
-//                itemArray = try decoder.decode([Item].self, from: data)
-//            } catch{
-//                print("Error decoding item array \(error)")
-//            }
-//        }
+    func loadItems(){
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        do{
+            itemArray = try context.fetch(request)
+        }catch{
+            print("Error fetching data from context \(error)")
+        }
         
     }
     
-    
+}
