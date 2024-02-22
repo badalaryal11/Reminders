@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reminders-->
+        <!--Items-->
         <scene sceneID="7wW-mw-8Kk">
             <objects>
                 <tableViewController id="w16-kC-fDH" customClass="RemindersViewController" customModule="Reminders" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Reminders" largeTitleDisplayMode="always" style="editor" id="Twq-hC-Mcr">
+                    <navigationItem key="navigationItem" title="Items" largeTitleDisplayMode="always" style="editor" id="Twq-hC-Mcr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MJI-uH-H8U">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -52,7 +52,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oH1-Wp-Ogu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="879" y="-62"/>
+            <point key="canvasLocation" x="1085" y="-45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F7X-KA-qCn">
@@ -69,12 +69,51 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="w16-kC-fDH" kind="relationship" relationship="rootViewController" id="Far-PM-r1P"/>
+                        <segue destination="lcy-iP-s5n" kind="relationship" relationship="rootViewController" id="0iq-pH-lBJ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9pZ-0W-5TB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="-61"/>
+            <point key="canvasLocation" x="-396" y="-60"/>
+        </scene>
+        <!--Reminders-->
+        <scene sceneID="nyh-sV-WSX">
+            <objects>
+                <tableViewController id="lcy-iP-s5n" customClass="CategoryViewController" customModule="Reminders" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="3GU-8P-6nd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="bit-eW-dEg">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bit-eW-dEg" id="Hcf-kT-waU">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lcy-iP-s5n" id="hyE-Tv-LDj"/>
+                            <outlet property="delegate" destination="lcy-iP-s5n" id="00X-YF-Qc6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Reminders" id="I8T-jt-WZY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Lhh-ux-hWR">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="lcy-iP-s5n" id="oyd-At-lpG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="w16-kC-fDH" kind="show" identifier="goToItems" id="Ht0-OY-u5Z"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FnA-m4-9Nd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="-56"/>
         </scene>
     </scenes>
     <resources>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		585A51282B8710A20041A2B8 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585A51272B8710A20041A2B8 /* CategoryViewController.swift */; };
 		5891A03E2B7DE552008312A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891A03D2B7DE552008312A1 /* AppDelegate.swift */; };
 		5891A0402B7DE552008312A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891A03F2B7DE552008312A1 /* SceneDelegate.swift */; };
 		5891A0422B7DE552008312A1 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891A0412B7DE552008312A1 /* RemindersViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		585A51272B8710A20041A2B8 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		5891A03A2B7DE552008312A1 /* Reminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5891A03D2B7DE552008312A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5891A03F2B7DE552008312A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 		585365832B8260DF0015807C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				585A51272B8710A20041A2B8 /* CategoryViewController.swift */,
 				5891A0412B7DE552008312A1 /* RemindersViewController.swift */,
 			);
 			path = Controllers;
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				585A51282B8710A20041A2B8 /* CategoryViewController.swift in Sources */,
 				58BF68092B84A10400511AE4 /* DataModel.xcdatamodeld in Sources */,
 				5891A0422B7DE552008312A1 /* RemindersViewController.swift in Sources */,
 				5891A03E2B7DE552008312A1 /* AppDelegate.swift in Sources */,
