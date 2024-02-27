@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class RemindersViewController: UITableViewController {
+class RemindersViewController: SwipeTableViewController {
     
     var todoItems: Results<Item>?
     let realm = try! Realm()
@@ -53,9 +53,10 @@ class RemindersViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         print("cellForRowAtindexPath Called")
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReminderCell", for: indexPath)
+       
         
         if let item = todoItems?[indexPath.row] {
            
@@ -133,6 +134,7 @@ class RemindersViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    //MARK: - Model Manipulation Methods
     
     func loadItems(){
         
@@ -142,6 +144,17 @@ class RemindersViewController: UITableViewController {
         tableView.reloadData()
     }
 
+    override func updateModel(at indexPath: IndexPath) {
+        if let item = todoItems?[indexPath.row] {
+            do {
+                try realm.write {
+                    realm.delete(item)
+                }
+            } catch {
+                print("Error deleting Item, \(error)")
+            }
+        }
+    }
 }
 
 //MARK: - Search Bar Methods
