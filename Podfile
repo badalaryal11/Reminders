@@ -8,6 +8,7 @@ target 'Reminders' do
   
     pod 'RealmSwift', '~> 10.47.0', :modular_headers => true
     pod 'Realm', '~> 10.47.0', :modular_headers => true
+    pod 'SwipeCellKit'
    
 
 end
