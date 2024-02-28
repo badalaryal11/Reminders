@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class RemindersViewController: SwipeTableViewController {
     
@@ -35,6 +36,7 @@ class RemindersViewController: SwipeTableViewController {
         
         
         print(dataFilePath)
+        tableView.separatorStyle = .none
         
         
         
@@ -62,6 +64,12 @@ class RemindersViewController: SwipeTableViewController {
            
             cell.textLabel?.text = item.title
             
+            if let colour = UIColor(hexString: selectedCategory!.colour)?.darken(byPercentage: CGFloat(indexPath.row)
+                                                 /  CGFloat(todoItems!.count)) {
+                
+                cell.backgroundColor = colour
+                cell.textLabel?.textColor = ContrastColorOf(colour, returnFlat: true)
+            }
             // use ternary operator
             cell.accessoryType = item.done  ? .checkmark: .none
             
@@ -106,7 +114,7 @@ class RemindersViewController: SwipeTableViewController {
         var textField = UITextField()
         
         let alert = UIAlertController(title: "Add New Reminder ", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Add things to remember", style: .default) { (action) in
+        let action = UIAlertAction(title: "Add Items", style: .default) { (action) in
             //  what will happen once the user clicks the Add button item button on our UIAlert
             
 
