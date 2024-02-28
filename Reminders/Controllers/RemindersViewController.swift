@@ -11,6 +11,7 @@ import ChameleonFramework
 
 class RemindersViewController: SwipeTableViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     var todoItems: Results<Item>?
     let realm = try! Realm()
     
@@ -35,11 +36,29 @@ class RemindersViewController: SwipeTableViewController {
         // create file path to our documents folder
         
         
-        print(dataFilePath)
+        
         tableView.separatorStyle = .none
+        // use optional binding
+       
+        }
         
-        
-        
+        override func viewWillAppear(_ animated: Bool) {
+            
+            if let colourHex = selectedCategory?.colour {
+                
+                title = selectedCategory!.name
+                
+                guard let navBar = navigationController?.navigationBar else {
+                    fatalError("Navigation Controller doesnot exist")
+                }
+                
+                if let navBarColour = UIColor(hexString: colourHex){
+                    navBar.backgroundColor = navBarColour
+                    navBar.tintColor = ContrastColorOf(navBarColour, returnFlat: true)
+                    navBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : ContrastColorOf(navBarColour, returnFlat: true)]
+                    searchBar.barTintColor = navBarColour
+                }
+        }
         
         
         
