@@ -12,9 +12,8 @@ frameworks like UserDefaults, CoreData , Realm and various Pods.
 </p>
 
 
-![1r-Photoroom-portrait]()
 
-![2r-Photoroom-portrait]()
+
 
 
 
