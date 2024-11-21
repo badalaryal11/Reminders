@@ -6,13 +6,15 @@ frameworks like UserDefaults, CoreData , Realm and various Pods.
 * Contribution: Developed the user interface using UIKit, optimized backend communication with CoreData and Realm.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/2e1364d1-b80b-44b5-ae0d-1d6e97434dd5" alt="Alt Text" width="200"/>
+  <img src="https://github.com/user-attachments/assets/c5e9a269-56e4-4998-a993-1d6ecdf569df" alt="Alt Text" width="200"/>
  &nbsp;&nbsp;&nbsp;&nbsp;
- <img src="https://github.com/user-attachments/assets/99bf4bc7-2284-44d7-a973-42e10e39f1f9" alt="Alt Text" width="200"/>
+ <img src="https://github.com/user-attachments/assets/01a003e6-dd1a-4d97-b0fe-1da51bdb7812" alt="Alt Text" width="200"/>
 </p>
 
 
+![1r-Photoroom-portrait]()
 
+![2r-Photoroom-portrait]()
 
 
 
